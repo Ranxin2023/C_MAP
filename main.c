@@ -1,5 +1,5 @@
 #include "c_frequency_map.h"
-int main()
+void test_int_map()
 {
     int arr[] = {7, 3, 5, 6, 5, 1, 3, 11, 9, 12, 5, 7, 8, 6, 3};
     int arr_size = sizeof(arr) / sizeof(int);
@@ -12,6 +12,9 @@ int main()
     }
     print_map(frequency);
     free_map(frequency);
-
+}
+int main()
+{
+    test_int_map();
     return 0;
 }

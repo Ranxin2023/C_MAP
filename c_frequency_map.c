@@ -1,8 +1,8 @@
 #include "c_frequency_map.h"
 
-PAIR *make_pair(int k, int v)
+INT_PAIR *make_int_pair(int k, int v)
 {
-    PAIR *p = malloc(sizeof(PAIR));
+    INT_PAIR *p = malloc(sizeof(INT_PAIR));
     p->key = k;
     p->value = v;
     return p;
@@ -10,14 +10,14 @@ PAIR *make_pair(int k, int v)
 
 int int_key_compare(const void *a, const void *b)
 {
-    PAIR *p1 = *(PAIR **)a;
-    PAIR *p2 = *(PAIR **)b;
+    INT_PAIR *p1 = *(INT_PAIR **)a;
+    INT_PAIR *p2 = *(INT_PAIR **)b;
     return p1->key - p2->key;
 }
 
 void sort(F_MAP *m)
 {
-    qsort(m->key_values, m->size, sizeof(PAIR *), int_key_compare);
+    qsort(m->key_values, m->size, sizeof(INT_PAIR *), int_key_compare);
 }
 
 F_MAP *initialize()
@@ -37,14 +37,14 @@ void append(F_MAP *m, int key, int value)
     }
     if (m->size == 0)
     {
-        m->key_values = malloc(sizeof(PAIR *));
+        m->key_values = malloc(sizeof(INT_PAIR *));
     }
     else
     {
 
-        m->key_values = (PAIR **)realloc(m->key_values, sizeof(PAIR *) * (m->size + 1));
+        m->key_values = (INT_PAIR **)realloc(m->key_values, sizeof(INT_PAIR *) * (m->size + 1));
     }
-    m->key_values[m->size] = make_pair(key, value);
+    m->key_values[m->size] = make_int_pair(key, value);
     m->size += 1;
     sort(m);
 }
@@ -71,7 +71,7 @@ int find(F_MAP *m, int key)
     return 0;
 }
 
-void update(F_MAP *m, int key, int value)
+void update_int_map(F_MAP *m, int key, int value)
 {
     int l = 0, r = m->size - 1;
     while (l <= r)
