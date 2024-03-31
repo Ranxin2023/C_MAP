@@ -1,18 +1,4 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-
-typedef struct _PAIR
-{
-    int key;
-    int value;
-} PAIR;
-
-typedef struct FREQUENCY_MAP
-{
-    size_t size;
-    PAIR **key_values;
-} F_MAP;
+#include "c_frequency_map.h"
 
 PAIR *make_pair(int k, int v)
 {
@@ -22,8 +8,6 @@ PAIR *make_pair(int k, int v)
     return p;
 }
 
-int find(F_MAP *m, int key);
-void update(F_MAP *m, int key, int value);
 int compare(const void *a, const void *b)
 {
     PAIR *p1 = *(PAIR **)a;
@@ -181,20 +165,4 @@ void free_map(F_MAP *m)
     }
     free(m->key_values);
     free(m);
-}
-int main()
-{
-    int arr[] = {7, 3, 5, 6, 5, 1, 3, 11, 9, 12, 5, 7, 8, 6, 3};
-    int arr_size = sizeof(arr) / sizeof(int);
-    F_MAP *frequency = initialize();
-    for (size_t i = 0; i < arr_size; i++)
-    {
-        append(frequency, arr[i], get_or_default(frequency, arr[i], 0) + 1);
-        // int find_flag = -1;
-        // printf("fre[arr[%lld]] is %d", i, get(frequency, &find_flag, arr[i]));
-    }
-    print_map(frequency);
-    free_map(frequency);
-
-    return 0;
 }
