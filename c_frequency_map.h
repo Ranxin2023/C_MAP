@@ -17,13 +17,13 @@ typedef struct FREQUENCY_MAP
 
 INT_PAIR *make_int_pair(int k, int v);
 int int_key_compare(const void *a, const void *b);
-void sort(F_MAP *m);
-F_MAP *initialize();
-void append(F_MAP *m, int key, int value);
+void sort_int_map(F_MAP *m);
+F_MAP *initialize_int_map();
+void append_int_map(F_MAP *m, int key, int value);
 int find(F_MAP *m, int key);
 void update_int_map(F_MAP *m, int key, int value);
 int get(F_MAP *m, int *find_flag, int key);
 int get_or_default(F_MAP *m, int key, int value);
 void print_map(F_MAP *m);
-void free_map(F_MAP *m);
+void free_int_map(F_MAP *m);
 #endif

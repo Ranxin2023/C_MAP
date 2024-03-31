@@ -15,12 +15,12 @@ int int_key_compare(const void *a, const void *b)
     return p1->key - p2->key;
 }
 
-void sort(F_MAP *m)
+void sort_int_map(F_MAP *m)
 {
     qsort(m->key_values, m->size, sizeof(INT_PAIR *), int_key_compare);
 }
 
-F_MAP *initialize()
+F_MAP *initialize_int_map()
 {
     F_MAP *map = malloc(sizeof(F_MAP));
     map->size = 0;
@@ -28,7 +28,7 @@ F_MAP *initialize()
     return map;
 }
 
-void append(F_MAP *m, int key, int value)
+void append_int_map(F_MAP *m, int key, int value)
 {
     if (find(m, key))
     {
@@ -46,7 +46,7 @@ void append(F_MAP *m, int key, int value)
     }
     m->key_values[m->size] = make_int_pair(key, value);
     m->size += 1;
-    sort(m);
+    sort_int_map(m);
 }
 int find(F_MAP *m, int key)
 {
@@ -157,7 +157,7 @@ void print_map(F_MAP *m)
     }
 }
 
-void free_map(F_MAP *m)
+void free_int_map(F_MAP *m)
 {
     for (size_t i = 0; i < m->size; i++)
     {
