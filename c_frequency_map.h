@@ -16,7 +16,7 @@ typedef struct FREQUENCY_MAP
 } F_MAP;
 
 PAIR *make_pair(int k, int v);
-int compare(const void *a, const void *b);
+int int_key_compare(const void *a, const void *b);
 void sort(F_MAP *m);
 F_MAP *initialize();
 void append(F_MAP *m, int key, int value);

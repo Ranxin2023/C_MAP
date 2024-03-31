@@ -8,7 +8,7 @@ PAIR *make_pair(int k, int v)
     return p;
 }
 
-int compare(const void *a, const void *b)
+int int_key_compare(const void *a, const void *b)
 {
     PAIR *p1 = *(PAIR **)a;
     PAIR *p2 = *(PAIR **)b;
@@ -17,7 +17,7 @@ int compare(const void *a, const void *b)
 
 void sort(F_MAP *m)
 {
-    qsort(m->key_values, m->size, sizeof(PAIR *), compare);
+    qsort(m->key_values, m->size, sizeof(PAIR *), int_key_compare);
 }
 
 F_MAP *initialize()
