@@ -2,9 +2,10 @@
 STRING_PAIR *make_string_pair(char *key, int value)
 {
     STRING_PAIR *p = malloc(sizeof(STRING_PAIR));
-    p->key = malloc(sizeof(char) * (strlen(key) + 1));
+    size_t key_len = strlen(key);
+    p->key = malloc(sizeof(char) * (key_len + 1));
     strcpy(p->key, key);
-    p->key[strlen(key)] = '\0';
+    p->key[key_len] = '\0';
     p->value = value;
     return p;
 }
