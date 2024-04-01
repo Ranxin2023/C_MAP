@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall -Werror
-DEPS=c_frequency_map.h
-SRCS=main.c c_frequency_map.c
+DEPS=c_frequency_map.h c_string_map.h
+SRCS=main.c c_frequency_map.c c_string_map.c
 OBJECTS=$(SRCS:.c=.o)
 TARGET=cm
 

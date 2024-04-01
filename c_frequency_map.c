@@ -32,7 +32,7 @@ void append_int_map(F_MAP *m, int key, int value)
 {
     if (find(m, key))
     {
-        update(m, key, value);
+        update_int_map(m, key, value);
         return;
     }
     if (m->size == 0)
@@ -148,9 +148,9 @@ int get_or_default(F_MAP *m, int key, int value)
     return 0;
 }
 
-void print_map(F_MAP *m)
+void print_int_map(F_MAP *m)
 {
-    printf("All key value pairs in map are:\n");
+    printf("All key value pairs in int map are:\n");
     for (size_t i = 0; i < m->size; i++)
     {
         printf("num: %d, frequency: %d\n", m->key_values[i]->key, m->key_values[i]->value);

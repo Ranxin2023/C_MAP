@@ -24,6 +24,6 @@ int find(F_MAP *m, int key);
 void update_int_map(F_MAP *m, int key, int value);
 int get(F_MAP *m, int *find_flag, int key);
 int get_or_default(F_MAP *m, int key, int value);
-void print_map(F_MAP *m);
+void print_int_map(F_MAP *m);
 void free_int_map(F_MAP *m);
 #endif
